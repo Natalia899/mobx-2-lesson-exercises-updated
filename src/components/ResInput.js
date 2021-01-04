@@ -6,6 +6,8 @@ class ResInput extends Component {
     inputHandler = (e) => {
         this.props.GeneralStore.handleInput(e.target.name, e.target.value)
     }
+
+    
     render () {
         return (
             <div>
@@ -16,10 +18,11 @@ class ResInput extends Component {
                         name = "numPeople"
                         type = "number"
                         placeholder = "Number of people"/>
+                       
             </div>
         )
     }
 }
 
 //adding our GeneralStore as a prop of the ResInput component
-export default inject("GeneralStore")(observer(ResInput))
+export default inject("GeneralStore", "RestaurantStore")(observer(ResInput))
